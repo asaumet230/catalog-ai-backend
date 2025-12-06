@@ -1,0 +1,74 @@
+  {
+      "products": [
+          {
+              "Handle": "classic-cotton-tee",
+              "Title": "Classic Cotton Tee",
+              "Vendor": "YourBrand",
+              "Product Category": "Apparel & Accessories > Clothing > Shirts & Tops",
+              "Type": "T-Shirts",
+              "Tags": "cotton, basic, casual, unisex",
+              "Variant Price": 24.99,
+              "Variant Compare At Price": null,
+              "Image Src": "https://example.com/tshirt-basic.jpg",
+              "Variant Barcode": "123456789012"
+          },
+          {
+              "Handle": "urban-street-sneakers",
+              "Title": "Urban Street Sneakers",
+              "Vendor": "StreetWear Co",
+              "Product Category": "Apparel & Accessories > Shoes",
+              "Type": "Sneakers",
+              "Tags": "sneakers, urban, street style, footwear",
+              "Variant Price": 89.99,
+              "Variant Compare At Price": 119.99,
+              "Image Src": "https://example.com/sneaker-white.jpg",
+              "Variant Barcode": "345678901234",
+              "Option1 Name": "Size",
+              "Option1 Value": "7",
+              "Option2 Name": "Color",
+              "Option2 Value": "White"
+          },
+          {
+              "Handle": "organic-shampoo-500ml",
+              "Title": "Organic Argan Oil Shampoo 500ml",
+              "Vendor": "NatureBeauty",
+              "Product Category": "Health & Beauty > Personal Care > Hair Care > Shampoo",
+              "Type": "Hair Care",
+              "Tags": "organic, argan oil, natural, sulfate-free",
+              "Variant Price": 24.99,
+              "Variant Compare At Price": 29.99,
+              "Image Src": "https://example.com/shampoo-argan.jpg",
+              "Variant Barcode": "850123456789"
+          },
+          {
+              "Handle": "premium-yoga-mat",
+              "Title": "Premium Eco Yoga Mat",
+              "Vendor": "FitLife",
+              "Product Category": "Sporting Goods > Exercise & Fitness > Yoga & Pilates > Yoga Mats",
+              "Type": "Yoga Equipment",
+              "Tags": "yoga, mat, eco-friendly, non-slip",
+              "Variant Price": 49.99,
+              "Variant Compare At Price": 69.99,
+              "Image Src": "https://example.com/yoga-mat-purple.jpg",
+              "Variant Barcode": "456789012345",
+              "Option1 Name": "Size",
+              "Option1 Value": "Standard (68x24)",
+              "Option2 Name": "Color",
+              "Option2 Value": "Purple",
+              "Option3 Name": "Material",
+              "Option3 Value": "TPE Eco"
+          },
+          {
+              "Handle": "web-dev-course-2025",
+              "Title": "Complete Web Development Course 2025",
+              "Vendor": "TechAcademy",
+              "Product Category": "Media > E-Learning & Online Courses",
+              "Type": "Digital Courses",
+              "Tags": "web development, online course, javascript, react, nodejs",
+              "Variant Price": 149.99,
+              "Variant Compare At Price": 299.99,
+              "Image Src": "https://example.com/course-webdev.jpg",
+              "Variant Barcode": ""
+          }
+      ]
+  }

@@ -1,0 +1,405 @@
+{
+  "products": [
+    {
+      "handle": "classic-cotton-tee",
+      "title": "Classic Cotton Tee",
+      "body_html": "",
+      "vendor": "YourBrand",
+      "product_category": "Apparel & Accessories > Clothing > Shirts & Tops",
+      "product_type": "T-Shirts",
+      "tags": [
+        "cotton",
+        "basic",
+        "casual",
+        "unisex"
+      ],
+      "status": "active",
+      "gift_card": false,
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "options": [],
+      "variants": [
+        {
+          "sku": "TSH-BASIC-001",
+          "grams": 200,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 150,
+          "inventory_policy": "deny",
+          "fulfillment_service": "manual",
+          "price": 24.99,
+          "compare_at_price": 29.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "123456789012",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 10.0,
+          "options": {},
+          "image": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://example.com/tshirt-basic.jpg",
+          "position": 1,
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "handle": "urban-street-sneakers",
+      "title": "Urban Street Sneakers",
+      "body_html": "",
+      "vendor": "StreetWear Co",
+      "product_category": "Apparel & Accessories > Shoes",
+      "product_type": "Sneakers",
+      "tags": [
+        "sneakers",
+        "unisex",
+        "urban"
+      ],
+      "status": "active",
+      "gift_card": false,
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "options": [
+        {
+          "name": "Size",
+          "values": [
+            "10",
+            "11",
+            "9"
+          ]
+        },
+        {
+          "name": "Color",
+          "values": [
+            "Black",
+            "Gray",
+            "White"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "SNKR-URBAN-9-WHT",
+          "grams": 800,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 10,
+          "inventory_policy": "continue",
+          "fulfillment_service": "manual",
+          "price": 89.99,
+          "compare_at_price": 99.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "345678901235",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 42.0,
+          "options": {
+            "Size": "9",
+            "Color": "White"
+          },
+          "image": ""
+        },
+        {
+          "sku": "SNKR-URBAN-10-BLK",
+          "grams": 800,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 15,
+          "inventory_policy": "continue",
+          "fulfillment_service": "manual",
+          "price": 89.99,
+          "compare_at_price": 99.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "345678901236",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 42.0,
+          "options": {
+            "Size": "10",
+            "Color": "Black"
+          },
+          "image": "https://example.com/sneaker-black-variant.jpg"
+        },
+        {
+          "sku": "SNKR-URBAN-11-GRY",
+          "grams": 800,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 5,
+          "inventory_policy": "continue",
+          "fulfillment_service": "manual",
+          "price": 79.99,
+          "compare_at_price": 99.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "345678901237",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 42.0,
+          "options": {
+            "Size": "11",
+            "Color": "Gray"
+          },
+          "image": "https://example.com/sneaker-black-variant.jpg"
+        }
+      ],
+      "images": [
+        {
+          "src": "https://example.com/sneaker-main.jpg",
+          "position": 1,
+          "alt": ""
+        },
+        {
+          "src": "https://example.com/sneaker-side.jpg",
+          "position": 2,
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "handle": "organic-shampoo-500ml",
+      "title": "Organic Shampoo 500ml",
+      "body_html": "",
+      "vendor": "EcoCare",
+      "product_category": "Health & Beauty > Personal Care > Hair Care",
+      "product_type": "Shampoo",
+      "tags": [
+        "organic",
+        "shampoo",
+        "sulfate-free"
+      ],
+      "status": "active",
+      "gift_card": false,
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "options": [],
+      "variants": [
+        {
+          "sku": "SHMP-ORGANIC-500",
+          "grams": 600,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 120,
+          "inventory_policy": "deny",
+          "fulfillment_service": "manual",
+          "price": 14.99,
+          "compare_at_price": 19.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "567890123456",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 6.0,
+          "options": {},
+          "image": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://example.com/organic-shampoo.jpg",
+          "position": 1,
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "handle": "premium-yoga-mat",
+      "title": "Premium Yoga Mat",
+      "body_html": "",
+      "vendor": "ZenMotion",
+      "product_category": "Sporting Goods > Exercise & Fitness > Yoga & Pilates",
+      "product_type": "Yoga Mat",
+      "tags": [
+        "yoga",
+        "fitness",
+        "non-slip"
+      ],
+      "status": "active",
+      "gift_card": false,
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "options": [
+        {
+          "name": "Color",
+          "values": [
+            "Blue",
+            "Green",
+            "Purple"
+          ]
+        }
+      ],
+      "variants": [
+        {
+          "sku": "YOGA-MAT-BLU",
+          "grams": 1500,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 50,
+          "inventory_policy": "deny",
+          "fulfillment_service": "manual",
+          "price": 39.99,
+          "compare_at_price": 49.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "678901234567",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 18.0,
+          "options": {
+            "Color": "Blue"
+          },
+          "image": ""
+        },
+        {
+          "sku": "YOGA-MAT-GRN",
+          "grams": 1500,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 40,
+          "inventory_policy": "deny",
+          "fulfillment_service": "manual",
+          "price": 39.99,
+          "compare_at_price": 49.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "678901234568",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 18.0,
+          "options": {
+            "Color": "Green"
+          },
+          "image": ""
+        },
+        {
+          "sku": "YOGA-MAT-PRP",
+          "grams": 1500,
+          "inventory_tracker": "shopify",
+          "inventory_quantity": 30,
+          "inventory_policy": "deny",
+          "fulfillment_service": "manual",
+          "price": 39.99,
+          "compare_at_price": 49.99,
+          "requires_shipping": true,
+          "taxable": true,
+          "barcode": "678901234569",
+          "weight_unit": "g",
+          "tax_code": "",
+          "cost_per_item": 18.0,
+          "options": {
+            "Color": "Purple"
+          },
+          "image": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://example.com/yoga-mat-main.jpg",
+          "position": 1,
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "handle": "web-dev-course-2025",
+      "title": "Web Development Masterclass 2025",
+      "body_html": "",
+      "vendor": "CodeAcademy Pro",
+      "product_category": "Education > Online Courses",
+      "product_type": "Online Course",
+      "tags": [
+        "web development",
+        "online course",
+        "programming"
+      ],
+      "status": "active",
+      "gift_card": false,
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "options": [],
+      "variants": [
+        {
+          "sku": "COURSE-WEBDEV-2025",
+          "grams": null,
+          "inventory_tracker": "",
+          "inventory_quantity": 0,
+          "inventory_policy": "deny",
+          "fulfillment_service": "manual",
+          "price": 199.0,
+          "compare_at_price": 249.0,
+          "requires_shipping": false,
+          "taxable": true,
+          "barcode": "",
+          "weight_unit": "",
+          "tax_code": "",
+          "cost_per_item": 0.0,
+          "options": {},
+          "image": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://example.com/web-dev-course-cover.jpg",
+          "position": 1,
+          "alt": ""
+        }
+      ]
+    },
+    {
+      "handle": "gift-card-50",
+      "title": "$50 Gift Card",
+      "body_html": "",
+      "vendor": "YourBrand",
+      "product_category": "Unknown",
+      "product_type": "Gift Card",
+      "tags": [
+        "gift card",
+        "voucher",
+        "present"
+      ],
+      "status": "active",
+      "gift_card": true,
+      "seo": {
+        "title": "",
+        "description": ""
+      },
+      "options": [],
+      "variants": [
+        {
+          "sku": "GC-50",
+          "grams": null,
+          "inventory_tracker": "",
+          "inventory_quantity": 0,
+          "inventory_policy": "deny",
+          "fulfillment_service": "manual",
+          "price": 50.0,
+          "compare_at_price": null,
+          "requires_shipping": false,
+          "taxable": false,
+          "barcode": "",
+          "weight_unit": "",
+          "tax_code": "",
+          "cost_per_item": 0.0,
+          "options": {},
+          "image": ""
+        }
+      ],
+      "images": [
+        {
+          "src": "https://example.com/gift-card-50.jpg",
+          "position": 1,
+          "alt": ""
+        }
+      ]
+    }
+  ]
+}
