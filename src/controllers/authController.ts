@@ -15,8 +15,8 @@ export const register = async (req: Request, res: Response): Promise<Response> =
 
         if (userExists) {
             return res.status(400).json({
-                ok      : false,
-                message : `The email ${email} is already registered`,
+                ok: false,
+                message: `The email ${email} is already registered`,
             });
         }
 
@@ -27,9 +27,9 @@ export const register = async (req: Request, res: Response): Promise<Response> =
         //* Create new user
         const newUser = new User({
             name,
-            email     : email.toLowerCase(),
-            password  : hashedPassword,
-            provider  : 'credentials',
+            email: email.toLowerCase(),
+            password: hashedPassword,
+            provider: 'credentials',
         });
 
         //* Save user to database
@@ -39,9 +39,9 @@ export const register = async (req: Request, res: Response): Promise<Response> =
         const token = await generateJWT(newUser.id);
 
         return res.status(201).json({
-            ok      : true,
-            message : 'User registered successfully',
-            user    : newUser,
+            ok: true,
+            message: 'User registered successfully',
+            user: newUser,
             token,
         });
 
@@ -61,24 +61,24 @@ export const login = async (req: Request, res: Response): Promise<Response> => {
 
         if (!user) {
             return res.status(400).json({
-                ok      : false,
-                message : 'Invalid credentials - Email not found',
+                ok: false,
+                message: 'Invalid credentials - Email not found',
             });
         }
 
         //* Validate user is active
         if (!user.active) {
             return res.status(400).json({
-                ok      : false,
-                message : 'User is inactive - Contact administrator',
+                ok: false,
+                message: 'User is inactive - Contact administrator',
             });
         }
 
         //* Validate provider is credentials
         if (user.provider !== 'credentials') {
             return res.status(400).json({
-                ok      : false,
-                message : `This account uses ${user.provider} authentication`,
+                ok: false,
+                message: `This account uses ${user.provider} authentication`,
             });
         }
 
@@ -87,8 +87,8 @@ export const login = async (req: Request, res: Response): Promise<Response> => {
 
         if (!validPassword) {
             return res.status(400).json({
-                ok      : false,
-                message : 'Invalid credentials - Incorrect password',
+                ok: false,
+                message: 'Invalid credentials - Incorrect password',
             });
         }
 
@@ -96,8 +96,8 @@ export const login = async (req: Request, res: Response): Promise<Response> => {
         const token = await generateJWT(user.id);
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Login successful',
+            ok: true,
+            message: 'Login successful',
             user,
             token,
         });
@@ -117,9 +117,9 @@ export const renewToken = async (req: Request, res: Response): Promise<Response>
         const token = await generateJWT(authenticatedUser.id);
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Token renewed successfully',
-            user    : authenticatedUser,
+            ok: true,
+            message: 'Token renewed successfully',
+            user: authenticatedUser,
             token,
         });
 
@@ -149,11 +149,11 @@ export const syncOAuthUser = async (req: Request, res: Response): Promise<Respon
             //* Create new user from OAuth
             user = new User({
                 name,
-                email     : email.toLowerCase(),
-                avatar    : image,
+                email: email.toLowerCase(),
+                avatar: image,
                 provider,
                 providerId,
-                password  : '', //* No password for OAuth users
+                password: '', //* No password for OAuth users
             });
 
             await user.save({ validateBeforeSave: false });
@@ -163,8 +163,8 @@ export const syncOAuthUser = async (req: Request, res: Response): Promise<Respon
         const token = await generateJWT(user.id);
 
         return res.status(200).json({
-            ok      : true,
-            message : 'User synced successfully',
+            ok: true,
+            message: 'User synced successfully',
             user,
             token,
         });

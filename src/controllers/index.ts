@@ -5,3 +5,5 @@
 export * from './authController';
 export * from './usersController';
 export * from './catalogsController';
+export * from './analyticsController';
+export * from './productsController';

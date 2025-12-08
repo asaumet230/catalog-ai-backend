@@ -2,7 +2,7 @@ import express, { Express } from 'express';
 import cors from 'cors';
 import { PathsProps } from '../interfaces';
 import { dbConnection } from '../database';
-import { authRouter, usersRouter, catalogsRouter } from '../routes';
+import { authRouter, usersRouter, catalogsRouter, analyticsRouter, productsRouter } from '../routes';
 
 /**
  * Server Class
@@ -28,6 +28,8 @@ export class Server {
             auth            : '/api/auth',
             users           : '/api/users',
             catalogs        : '/api/catalogs',
+            analytics       : '/api',
+            products        : '/api/products',
         }
 
         this.whiteList = process.env.CORS_WHITELIST?.split(',') || [
@@ -72,10 +74,12 @@ export class Server {
     }
 
     private routes() {
-      
+
         this.app.use(this.paths.auth, authRouter);
         this.app.use(this.paths.users, usersRouter);
         this.app.use(this.paths.catalogs, catalogsRouter);
+        this.app.use(this.paths.analytics, analyticsRouter);
+        this.app.use(this.paths.products, productsRouter);
 
         this.app.get('/health', (_, res) => {
             res.status(200).json({

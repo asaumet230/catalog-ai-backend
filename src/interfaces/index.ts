@@ -6,3 +6,5 @@ export * from './IUser';
 export * from './ICatalog';
 export * from './IServer';
 export * from './IJob';
+export * from './IAnalytics';
+export * from './IProduct';

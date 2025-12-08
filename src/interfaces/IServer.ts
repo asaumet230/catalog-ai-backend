@@ -6,4 +6,6 @@ export interface PathsProps {
     auth        : string;
     users       : string;
     catalogs    : string;
+    analytics   : string;
+    products    : string;
 }

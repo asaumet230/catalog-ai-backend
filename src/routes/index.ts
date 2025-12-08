@@ -5,3 +5,5 @@
 export * from './authRouter';
 export * from './usersRouter';
 export * from './catalogsRouter';
+export * from './productsRouter';
+export * from './analyticsRouter';

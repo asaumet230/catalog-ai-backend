@@ -240,9 +240,9 @@ export const createCatalog = async (req: Request, res: Response): Promise<Respon
         await newCatalog.save({ validateBeforeSave: true });
 
         return res.status(201).json({
-            ok      : true,
-            message : 'Catalog created successfully',
-            catalog : newCatalog,
+            ok: true,
+            message: 'Catalog created successfully',
+            catalog: newCatalog,
         });
 
     } catch (error) {
@@ -294,12 +294,12 @@ export const getAllCatalogs = async (req: Request, res: Response): Promise<Respo
         });
 
         return res.status(200).json({
-            ok          : true,
-            message     : 'All catalogs',
+            ok: true,
+            message: 'All catalogs',
             total,
-            page        : Number(page),
-            totalPages  : Math.ceil(total / Number(limit)),
-            catalogs    : catalogsWithGroupedProducts,
+            page: Number(page),
+            totalPages: Math.ceil(total / Number(limit)),
+            catalogs: catalogsWithGroupedProducts,
         });
 
     } catch (error) {
@@ -320,15 +320,15 @@ export const getCatalogById = async (req: Request, res: Response): Promise<Respo
 
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog with id: ${id} not found`,
+                ok: false,
+                message: `Catalog with id: ${id} not found`,
             });
         }
 
         if (authenticatedUser.role !== 'admin_role' && catalog.userId._id.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to access this catalog',
+                ok: false,
+                message: 'You do not have permission to access this catalog',
             });
         }
 
@@ -344,9 +344,9 @@ export const getCatalogById = async (req: Request, res: Response): Promise<Respo
         }
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Catalog found',
-            catalog : catalogObj,
+            ok: true,
+            message: 'Catalog found',
+            catalog: catalogObj,
         });
 
     } catch (error) {
@@ -366,16 +366,16 @@ export const updateCatalog = async (req: Request, res: Response): Promise<Respon
 
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog with id: ${id} not found`,
+                ok: false,
+                message: `Catalog with id: ${id} not found`,
             });
         }
 
         //* Check ownership (unless admin)
         if (authenticatedUser.role !== 'admin_role' && catalog.userId.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to update this catalog',
+                ok: false,
+                message: 'You do not have permission to update this catalog',
             });
         }
 
@@ -389,9 +389,9 @@ export const updateCatalog = async (req: Request, res: Response): Promise<Respon
             .populate('products');
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Catalog updated successfully',
-            catalog : updatedCatalog,
+            ok: true,
+            message: 'Catalog updated successfully',
+            catalog: updatedCatalog,
         });
 
     } catch (error) {
@@ -411,16 +411,16 @@ export const deleteCatalog = async (req: Request, res: Response): Promise<Respon
 
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog with id: ${id} not found`,
+                ok: false,
+                message: `Catalog with id: ${id} not found`,
             });
         }
 
         //* Check ownership (unless admin)
         if (authenticatedUser.role !== 'admin_role' && catalog.userId.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to delete this catalog',
+                ok: false,
+                message: 'You do not have permission to delete this catalog',
             });
         }
 
@@ -428,8 +428,8 @@ export const deleteCatalog = async (req: Request, res: Response): Promise<Respon
         await Catalog.findByIdAndDelete(id);
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Catalog deleted successfully',
+            ok: true,
+            message: 'Catalog deleted successfully',
             catalog,
         });
 
@@ -450,16 +450,16 @@ export const addProductToCatalog = async (req: Request, res: Response): Promise<
 
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog with id: ${id} not found`,
+                ok: false,
+                message: `Catalog with id: ${id} not found`,
             });
         }
 
         //* Check ownership (unless admin)
         if (authenticatedUser.role !== 'admin_role' && catalog.userId.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to modify this catalog',
+                ok: false,
+                message: 'You do not have permission to modify this catalog',
             });
         }
 
@@ -468,8 +468,8 @@ export const addProductToCatalog = async (req: Request, res: Response): Promise<
         await catalog.save();
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Product added successfully',
+            ok: true,
+            message: 'Product added successfully',
             catalog,
         });
 
@@ -533,11 +533,14 @@ export const generateWooCommerceCatalog = async (req: Request, res: Response): P
 
         console.log('✅ Validation passed, creating job...');
 
+        console.log('✅ Validation passed, creating job...');
+
         const job = await Job.create({
             userId: authenticatedUser.id,
             platform,
             totalProducts: flattenedProducts.length,
             status: 'queued',
+            catalogName: req.body.name, // Save requested name
         });
 
         await catalogQueue.add(
@@ -547,6 +550,7 @@ export const generateWooCommerceCatalog = async (req: Request, res: Response): P
                 products: flattenedProducts,
                 userId: authenticatedUser.id,
                 platform,
+                catalogName: req.body.name, // Pass name to worker
             }
         );
 
@@ -609,11 +613,14 @@ export const generateShopifyCatalog = async (req: Request, res: Response): Promi
 
         console.log('✅ Validation passed, creating job...');
 
+        console.log('✅ Validation passed, creating job...');
+
         const job = await Job.create({
             userId: authenticatedUser.id,
             platform,
             totalProducts: flatProducts.length,
             status: 'queued',
+            catalogName: req.body.name, // Save requested name
         });
 
         await catalogQueue.add(
@@ -623,6 +630,7 @@ export const generateShopifyCatalog = async (req: Request, res: Response): Promi
                 products: flatProducts,
                 userId: authenticatedUser.id,
                 platform,
+                catalogName: req.body.name, // Pass name to worker
             }
         );
 

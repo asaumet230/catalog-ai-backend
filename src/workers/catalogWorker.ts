@@ -22,7 +22,7 @@ const connection = new Redis({
 const worker = new Worker(
     'catalog-generation',
     async (job: BullJob) => {
-        const { jobId, products, userId, platform } = job.data;
+        const { jobId, products, userId, platform, catalogName } = job.data;
 
         try {
             await Job.findByIdAndUpdate(jobId, { status: 'processing' });
@@ -82,7 +82,7 @@ const worker = new Worker(
             const productModelName = platform === 'woocommerce' ? 'WooCommerceProduct' : 'ShopifyProduct';
 
             const catalog = await Catalog.create({
-                name: `Generated Catalog - ${new Date().toISOString()}`,
+                name: catalogName || `Generated Catalog - ${new Date().toISOString()}`,
                 userId,
                 platform,
                 products: [],
