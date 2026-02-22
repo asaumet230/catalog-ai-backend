@@ -289,6 +289,8 @@ export const getAllCatalogs = async (req: Request, res: Response): Promise<Respo
                 } else if (catalogObj.platform === 'shopify') {
                     catalogObj.products = transformShopifyToModern(catalogObj.products);
                 }
+                // Update totalProducts to reflect grouped count
+                catalogObj.totalProducts = catalogObj.products.length;
             }
             return catalogObj;
         });
@@ -341,6 +343,8 @@ export const getCatalogById = async (req: Request, res: Response): Promise<Respo
             } else if (catalogObj.platform === 'shopify') {
                 catalogObj.products = transformShopifyToModern(catalogObj.products);
             }
+            // Update totalProducts to reflect grouped count
+            catalogObj.totalProducts = catalogObj.products.length;
         }
 
         return res.status(200).json({

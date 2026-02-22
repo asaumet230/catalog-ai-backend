@@ -34,19 +34,19 @@ export const getProducts = async (req: Request, res: Response): Promise<Response
 
         if (catalogId && catalogMap.size === 0) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog with id: ${catalogId} not found or not accessible`,
+                ok: false,
+                message: `Catalog with id: ${catalogId} not found or not accessible`,
             });
         }
 
         if (catalogMap.size === 0) {
             return res.status(200).json({
-                ok          : true,
-                message     : 'No products available',
-                total       : 0,
-                page        : Number(page),
-                totalPages  : 0,
-                products    : [],
+                ok: true,
+                message: 'No products available',
+                total: 0,
+                page: Number(page),
+                totalPages: 0,
+                products: [],
             });
         }
 
@@ -102,12 +102,12 @@ export const getProducts = async (req: Request, res: Response): Promise<Response
         const paginated = combined.slice(start, end);
 
         return res.status(200).json({
-            ok          : true,
-            message     : 'All products',
+            ok: true,
+            message: 'All products',
             total,
-            page        : safePage,
-            totalPages  : Math.ceil(total / safeLimit),
-            products    : paginated,
+            page: safePage,
+            totalPages: Math.ceil(total / safeLimit),
+            products: paginated,
         });
 
     } catch (error) {
@@ -126,32 +126,32 @@ export const getProductById = async (req: Request, res: Response): Promise<Respo
 
         if (!product || !platform) {
             return res.status(404).json({
-                ok      : false,
-                message : `Product with id: ${id} not found`,
+                ok: false,
+                message: `Product with id: ${id} not found`,
             });
         }
 
         const catalog = await Catalog.findById(product.catalogId);
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog for product ${id} not found`,
+                ok: false,
+                message: `Catalog for product ${id} not found`,
             });
         }
 
         if (authenticatedUser.role !== 'admin_role' && catalog.userId.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to access this product',
+                ok: false,
+                message: 'You do not have permission to access this product',
             });
         }
 
         const normalized = normalizeProduct(platform, product, catalog.name, String(catalog._id));
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Product found',
-            product : normalized,
+            ok: true,
+            message: 'Product found',
+            product: normalized,
         });
 
     } catch (error) {
@@ -169,15 +169,15 @@ export const createProduct = async (req: Request, res: Response): Promise<Respon
 
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog with id: ${catalogId} not found`,
+                ok: false,
+                message: `Catalog with id: ${catalogId} not found`,
             });
         }
 
         if (authenticatedUser.role !== 'admin_role' && catalog.userId.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to add products to this catalog',
+                ok: false,
+                message: 'You do not have permission to add products to this catalog',
             });
         }
 
@@ -197,9 +197,9 @@ export const createProduct = async (req: Request, res: Response): Promise<Respon
         const normalized = normalizeProduct(platform, created, catalog.name, String(catalog._id));
 
         return res.status(201).json({
-            ok      : true,
-            message : 'Product created successfully',
-            product : normalized,
+            ok: true,
+            message: 'Product created successfully',
+            product: normalized,
         });
 
     } catch (error) {
@@ -217,23 +217,23 @@ export const updateProduct = async (req: Request, res: Response): Promise<Respon
         const found = await findProductById(id);
         if (!found.product || !found.platform || !found.model) {
             return res.status(404).json({
-                ok      : false,
-                message : `Product with id: ${id} not found`,
+                ok: false,
+                message: `Product with id: ${id} not found`,
             });
         }
 
         const catalog = await Catalog.findById(found.product.catalogId);
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog for product ${id} not found`,
+                ok: false,
+                message: `Catalog for product ${id} not found`,
             });
         }
 
         if (authenticatedUser.role !== 'admin_role' && catalog.userId.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to update this product',
+                ok: false,
+                message: 'You do not have permission to update this product',
             });
         }
 
@@ -246,17 +246,17 @@ export const updateProduct = async (req: Request, res: Response): Promise<Respon
 
         if (!updated) {
             return res.status(404).json({
-                ok      : false,
-                message : `Product with id: ${id} not found after update`,
+                ok: false,
+                message: `Product with id: ${id} not found after update`,
             });
         }
 
         const normalized = normalizeProduct(found.platform, updated, catalog.name, String(catalog._id));
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Product updated successfully',
-            product : normalized,
+            ok: true,
+            message: 'Product updated successfully',
+            product: normalized,
         });
 
     } catch (error) {
@@ -274,23 +274,23 @@ export const deleteProduct = async (req: Request, res: Response): Promise<Respon
         const found = await findProductById(id);
         if (!found.product || !found.platform || !found.model) {
             return res.status(404).json({
-                ok      : false,
-                message : `Product with id: ${id} not found`,
+                ok: false,
+                message: `Product with id: ${id} not found`,
             });
         }
 
         const catalog = await Catalog.findById(found.product.catalogId);
         if (!catalog) {
             return res.status(404).json({
-                ok      : false,
-                message : `Catalog for product ${id} not found`,
+                ok: false,
+                message: `Catalog for product ${id} not found`,
             });
         }
 
         if (authenticatedUser.role !== 'admin_role' && catalog.userId.toString() !== authenticatedUser.id) {
             return res.status(403).json({
-                ok      : false,
-                message : 'You do not have permission to delete this product',
+                ok: false,
+                message: 'You do not have permission to delete this product',
             });
         }
 
@@ -301,8 +301,8 @@ export const deleteProduct = async (req: Request, res: Response): Promise<Respon
         await catalog.save();
 
         return res.status(200).json({
-            ok      : true,
-            message : 'Product deleted successfully',
+            ok: true,
+            message: 'Product deleted successfully',
             productId: id,
         });
 
